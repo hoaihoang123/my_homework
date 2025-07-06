@@ -1,0 +1,96 @@
+.registration-form {
+  max-width: 450px;
+  margin: 32px auto;
+  padding: 24px 32px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registration-form h2 {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.registration-form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 500;
+  margin-bottom: 4px;
+  gap: 2px;
+  text-align: left;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"],
+.registration-form input[type="date"],
+.registration-form input[type="file"],
+.registration-form select,
+.registration-form textarea {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  margin-top: 2px;
+  text-align: left;
+}
+
+.registration-form textarea {
+  min-height: 48px;
+  resize: vertical;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.95em;
+  margin-top: 2px;
+  text-align: left;
+}
+
+.gender-group,
+.hobbies-group {
+  gap: 2px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.gender-group span,
+.hobbies-group span {
+  font-weight: 500;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+.gender-group label,
+.hobbies-group label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.register-btn {
+  margin-top: 12px;
+  padding: 10px 0;
+  background: #111;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.register-btn:hover {
+  background: #333;
+}
