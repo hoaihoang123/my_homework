@@ -101,7 +101,7 @@ const Update = ({ productId, onUpdate, onClose }: Props) => {
     }
   };
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 ">
       {" "}
       {/* Modal Container */}
       <div className="z-50 w-1/3 p-8 bg-white rounded-lg shadow-lg ">
