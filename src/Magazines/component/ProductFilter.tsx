@@ -37,10 +37,8 @@ const ProductFilter: React.FC<ProductFilterProps> = ({ onFilterChange }) => {
     let updatedSelection: number[];
 
     if (checked) {
-      // Thêm category vào danh sách đã chọn
       updatedSelection = [...selectedCategories, categoryId];
     } else {
-      // Xóa category khỏi danh sách đã chọn
       updatedSelection = selectedCategories.filter((id) => id !== categoryId);
     }
 
