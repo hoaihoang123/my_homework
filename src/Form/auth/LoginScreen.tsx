@@ -23,7 +23,7 @@ const LoginScreen = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     // Handle form submission logic here
     alert("login success");
     // Navigate to the next screen or perform login action

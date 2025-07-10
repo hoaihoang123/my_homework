@@ -25,17 +25,10 @@ const AuthLayout = ({
       {/* Gradient overlay cho toàn bộ layout */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/90" />
 
-      <div className="relative z-10 flex flex-col h-full">
-        {/* BackButton area - luôn có để giữ layout consistent */}
-        <div className="flex-shrink-0 h-16 relative">
-          {showBackButton && <BackButton />}
-        </div>
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        {showBackButton ? <BackButton /> : <div className="flex-1" />}
 
-        {/* Spacer để đẩy content xuống dưới */}
-        <div className="flex-1" />
-
-        {/* Content area - luôn ở dưới */}
-        <div className="px-6 py-6 space-y-6 m-5 bg-black/50 rounded-3xl">
+        <div className={`px-6 py-6 space-y-6 m-5 bg-black/50 rounded-3xl `}>
           <h1 className="text-3xl font-bold">{title}</h1>
           {children}
         </div>

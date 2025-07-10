@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 interface BackButtonProps {
   onClick?: () => void;
   className?: string;
+
 }
 
 const BackButton = ({ onClick, className = "" }: BackButtonProps) => {
@@ -19,7 +20,7 @@ const BackButton = ({ onClick, className = "" }: BackButtonProps) => {
   return (
     <div className=" relative w-full">
       <button
-        onClick={onClick}
+        onClick={handleClick}
         className={`absolute top-6 left-6 p-2 text-white z-10 hover:bg-white/10 rounded-full transition-all ${className}`}
       >
         <BiArrowBack size={24} />

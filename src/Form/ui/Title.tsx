@@ -1,7 +1,16 @@
 import React from "react";
 
-const Title = ({ title }: { title: React.ReactNode }) => {
-  return <div className="">{title}</div>;
+interface TitleProps {
+  title: string;
+  className?: string;
+}
+
+const Title = ({ title, className = "" }: TitleProps) => {
+  return (
+    <div className={`flex justify-center mb-6 text-center ${className}`}>
+      <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
+    </div>
+  );
 };
 
 export default Title;
