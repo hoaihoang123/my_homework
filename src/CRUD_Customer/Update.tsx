@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  type ChangeEvent,
-  type FormEvent,
-} from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 
 const url = "https://api.escuelajs.co/api/v1/users/";
 

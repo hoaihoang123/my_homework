@@ -1,7 +1,5 @@
-import React from "react";
-
 const url = "https://api.escuelajs.co/api/v1/users";
-const Delete = ({ userId }) => {
+const Delete = ({ userId }: { userId: number }) => {
   const handleDelete = async () => {
     try {
       const response = await fetch(`${url}/${userId}`, {
