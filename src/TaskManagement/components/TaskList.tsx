@@ -4,7 +4,7 @@ import { PriorityBadge } from "../ui/priority-badge";
 import { StatusBadge } from "../ui/status-badge";
 import { useEffect, useState } from "react";
 import { getTasks } from "../service/task";
-import { useNavigate } from "react-router-dom";
+import TaskForm from "./TaskForm";
 
 // Helper function to format date
 const formatDate = (dateString: string | null) => {
@@ -16,14 +16,17 @@ export default function TaskList({
   priorityy = "",
   statuss = "",
   search = "",
+  refresh = 0,
 }: {
   priorityy?: string;
   statuss?: string;
   search?: string;
+  refresh?: number;
 }) {
-  const navigate = useNavigate();
   const [task, setTasks] = useState<Task[]>([]);
   const [filterTasks, setFilterTasks] = useState<Task[]>([]);
+  const [editModelOpem, setEditModelOpem] = useState(false);
+  const [taskId, setTaskId] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -36,7 +39,7 @@ export default function TaskList({
       }
     };
     fetchTasks();
-  }, []);
+  }, [refresh]);
 
   useEffect(() => {
     console.log(
@@ -121,7 +124,10 @@ export default function TaskList({
               <td className="py-4 px-6 flex items-center space-x-2">
                 <button
                   className="font-medium text-blue-600 hover:underline"
-                  onClick={() => navigate(`/tasks/update-task/${task.id}`)}
+                  onClick={() => {
+                    setEditModelOpem(true);
+                    setTaskId(task.id);
+                  }}
                 >
                   Edit
                 </button>
@@ -133,6 +139,26 @@ export default function TaskList({
           ))}
         </tbody>
       </table>
+      <TaskForm
+        isOpen={editModelOpem}
+        onClose={() => setEditModelOpem(false)}
+        mode="edit"
+        taskId={taskId}
+        onSuccess={() => {
+          const fetchTasks = async () => {
+            try {
+              const tasks = await getTasks();
+              if (tasks) {
+                setTasks(tasks);
+                setFilterTasks(tasks);
+              }
+            } catch (error) {
+              console.error("Failed to fetch tasks:", error);
+            }
+          };
+          fetchTasks();
+        }}
+      />
     </div>
   );
 }

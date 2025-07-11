@@ -17,22 +17,16 @@ import GrovaLoginLayout from "../GrovaLogin";
 import UserRegistrationForm from "../UserRegistrationForm";
 import DemoNavigation from "../DemoNavigation";
 import Login from "../TaskManagement/page/Login";
-import { useState } from "react";
 import Tasks from "../TaskManagement/page/Tasks";
-import CreateTask from "../TaskManagement/page/CreateTask";
-import EditTask from "../TaskManagement/page/EditTask";
 import ProtectedRoute from "../TaskManagement/ProtectedRoute";
 import DeniedTask from "../TaskManagement/page/DeniedTask";
-import { AuthContext } from "../TaskManagement/context";
 import { AuthProvider } from "../TaskManagement/AuthContext";
 
 const AppRoute = () => {
-  const [user, setUser] = useState(null);
-
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/" element={<Navigate to="/demo" replace />} />
+        {/* <Route path="/" element={<Navigate to="/demo" replace />} /> */}
         <Route path="/demo" element={<DemoNavigation />} />
 
         {/* Auth Routes */}
@@ -75,8 +69,7 @@ const AppRoute = () => {
 
         {/* <Route path="/task-management"> */}
 
-        <Route path="/login-task" element={<Login />} />
-        {/* {user && <Route path="/tasks" element={<Tasks />} />} */}
+        <Route path="/" element={<Login />} />
         <Route
           path="/tasks"
           element={
@@ -85,25 +78,7 @@ const AppRoute = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/tasks/create-task"
-          element={
-            <ProtectedRoute>
-              <CreateTask />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/tasks/update-task/:taskId"
-          element={
-            <ProtectedRoute>
-              <EditTask />
-            </ProtectedRoute>
-          }
-        />
         <Route path="*" element={<DeniedTask />} />
-        {/* Add other task management routes here */}
-        {/* </Route> */}
       </Routes>
     </AuthProvider>
   );

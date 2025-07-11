@@ -1,16 +1,19 @@
-import React, { type ChangeEvent } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, type ChangeEvent } from "react";
+import TaskForm from "./TaskForm";
 
 interface TaskFilterProps {
   onPrioritySelected: (priority: string) => void;
   onStatusSelected: (status: string) => void;
   onSearchChange?: (searchTerm: string) => void;
+  onTaskCreeted: () => void;
 }
 const TaskFilter = ({
   onPrioritySelected,
   onStatusSelected,
   onSearchChange,
+  onTaskCreeted,
 }: TaskFilterProps) => {
+  const [modalOpen, setIsModalOpen] = useState(false);
   const handlePriorityChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -27,16 +30,23 @@ const TaskFilter = ({
     }
   };
 
+  const handleTaskSuccess = () => {
+    if (onTaskCreeted) {
+      onTaskCreeted();
+    }
+  };
+
   return (
-    <div>
+    <div className="bg-white shadow-md rounded-lg p-6 mb-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Task Management</h1>
-        <NavLink
-          to="/tasks/create-task"
+        <button
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
         >
           Create Task
-        </NavLink>
+        </button>
       </div>
 
       {/* Search and filters could go here */}
@@ -88,6 +98,12 @@ const TaskFilter = ({
           </select>
         </div>
       </div>
+      <TaskForm
+        mode=" create"
+        isOpen={modalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSuccess={handleTaskSuccess}
+      />
     </div>
   );
 };
