@@ -21,6 +21,10 @@ import Tasks from "../TaskManagement/page/Tasks";
 import ProtectedRoute from "../TaskManagement/ProtectedRoute";
 import DeniedTask from "../TaskManagement/page/DeniedTask";
 import { AuthProvider } from "../TaskManagement/AuthContext";
+import UserRoute from "./UserRoute";
+import LoginForm from "../AuthLorin/page/LoginForm";
+import AuthProtectedRoute from "../AuthLorin/components/ProtectedRoute";
+import TasksPage from "../AuthLorin/page/TasksPage";
 
 const AppRoute = () => {
   return (
@@ -69,16 +73,22 @@ const AppRoute = () => {
 
         {/* <Route path="/task-management"> */}
 
-        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Login />} /> */}
+        <Route path="/" element={<LoginForm />} />
+        {/* </Route> */}
+
         <Route
           path="/tasks"
           element={
-            <ProtectedRoute>
+            <AuthProtectedRoute>
               <Tasks />
-            </ProtectedRoute>
+            </AuthProtectedRoute>
           }
         />
         <Route path="*" element={<DeniedTask />} />
+
+        {/* User Route */}
+        <Route path="/user/*" element={<UserRoute />} />
       </Routes>
     </AuthProvider>
   );

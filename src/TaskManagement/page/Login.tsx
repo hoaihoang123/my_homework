@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Input from "../../Form/ui/Input";
 import Button from "../../Form/ui/Button";
 import { useForm } from "react-hook-form";
@@ -75,7 +75,6 @@ const Login = () => {
           </label>
           <Input
             type="email"
-            id="email"
             placeholder="Email address"
             {...register("email")}
             className={errors.email ? "border-red-500" : ""}
@@ -91,7 +90,6 @@ const Login = () => {
           </label>
           <Input
             type="password"
-            id="password"
             placeholder="Password"
             {...register("password")}
             className={errors.password ? "border-red-500" : ""}

@@ -10,3 +10,5 @@ const initialAuthContext: AuthContextType = {
   logout: () => {},
 };
 export const AuthContext = createContext<AuthContextType>(initialAuthContext);
+
+

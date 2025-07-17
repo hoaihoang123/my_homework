@@ -32,8 +32,8 @@ export default function TaskList({
     const fetchTasks = async () => {
       const tasks = await getTasks();
       if (tasks) {
-        setTasks(tasks);
-        setFilterTasks(tasks);
+        setTasks(tasks.data);
+        setFilterTasks(tasks.data);
       } else {
         console.error("Failed to fetch tasks");
       }
@@ -149,8 +149,8 @@ export default function TaskList({
             try {
               const tasks = await getTasks();
               if (tasks) {
-                setTasks(tasks);
-                setFilterTasks(tasks);
+                setTasks(tasks.data);
+                setFilterTasks(tasks.data);
               }
             } catch (error) {
               console.error("Failed to fetch tasks:", error);
