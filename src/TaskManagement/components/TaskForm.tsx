@@ -111,7 +111,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
       if (isEditMode && taskId) {
         try {
           const taskData = await getTaskById(taskId);
-          setInitialData(taskData);
+          setInitialData(taskData.data);
         } catch (error) {
           console.error("Failed to fetch task data:", error);
         }
