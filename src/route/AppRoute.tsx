@@ -16,15 +16,12 @@ import RegisterLayout from "../RegisterForm";
 import GrovaLoginLayout from "../GrovaLogin";
 import UserRegistrationForm from "../UserRegistrationForm";
 import DemoNavigation from "../DemoNavigation";
-import Login from "../TaskManagement/page/Login";
 import Tasks from "../TaskManagement/page/Tasks";
-import ProtectedRoute from "../TaskManagement/ProtectedRoute";
 import DeniedTask from "../TaskManagement/page/DeniedTask";
 import { AuthProvider } from "../TaskManagement/AuthContext";
 import UserRoute from "./UserRoute";
 import LoginForm from "../AuthLorin/page/LoginForm";
 import AuthProtectedRoute from "../AuthLorin/components/ProtectedRoute";
-import TasksPage from "../AuthLorin/page/TasksPage";
 
 const AppRoute = () => {
   return (
